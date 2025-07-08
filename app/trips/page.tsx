@@ -35,7 +35,7 @@ export default async function TripsPage() {
 
     <Card>
       <CardHeader>
-        <CardTitle>Welcome back, {session.user.name}</CardTitle>
+        <CardTitle>Welcome back, {session?.user?.name}</CardTitle>
       </CardHeader>
       <CardContent>
         <p>
@@ -49,6 +49,7 @@ export default async function TripsPage() {
 
         </p>
       </CardContent>
+    </Card>
       <div>
         <h2 className="text-xl font-semibold mb-4">
           Your Recent Trips
@@ -69,19 +70,25 @@ export default async function TripsPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {sortedTrips.slice(0,6).map((trip, key)=>(
               <Link key={key} href={""}>
-                <Card className="h-full hover:shadow-md transition-shadow ">
+                <Card className="h-full hover:shadow-md transition-shadow">
                   <CardHeader>
-                    <CardTitle>
+                    <CardTitle className="line-clamp-1">
                       {trip.title}
                     </CardTitle>
                   </CardHeader>
+                  <CardContent>
+                  <p className="text-sm line-clamp-2 mb-2">{trip.description}</p>
+                  <div className="text-sm"> {" "}
+                    {new Date(trip.startDate).toLocaleDateString()} - {" "}
+                    {new Date(trip.endDate).toLocaleDateString()}
+                    </div>
+                  </CardContent>
                 </Card>
               </Link>
             ))}
           </div>
         )}
       </div>
-    </Card>
   </div>
 );
 
