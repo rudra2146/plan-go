@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader } from "@/Components/ui/card";
-import { createTrip } from "@/lib/create-trip";
+import { createTrip } from "@/lib/actions/create-trip";
 import { cn } from "@/lib/utils";
 import { UploadButton } from "@/lib/upload-thing";
 import { useState, useTransition } from "react";
