@@ -26,7 +26,7 @@ export default function NewLocationClient({tripId}: {tripId: string}){
                             />
                         </div>
 
-                        <Button type="submit" className="">
+                        <Button type="submit" className="w-full">
                             {isPending ? "Adding..." : "Add Location"}
                         </Button>
                     </form>
