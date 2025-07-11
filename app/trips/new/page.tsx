@@ -8,7 +8,7 @@ import { useState, useTransition } from "react";
 import Image from "next/image";
 
 export default function NewTrip() {
-    const [imageUrl, setImageUrl] = useState<string>("");
+    const [imageUrl, setImageUrl] = useState<string | undefined>();
     const [isPending, startTransition] = useTransition()
     return (
         <div className="max-w-lg mx-auto mt-10">
